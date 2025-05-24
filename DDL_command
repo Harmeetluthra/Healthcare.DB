@@ -1,0 +1,75 @@
+SQL File 
+DDL command for Healthcare. DB
+_______
+Create database if not exists HealthcareDB;
+
+Create table if not exists HealthcareDB.Patient (
+Patient_ID varchar (10) primary key, 
+Patient_First_name Varchar(20),
+Patient_Middle_name varchar (20),  
+Last_name varchar (20),
+Date_of_birth Date, 
+Contact_number varchar (13), 
+Address varchar (35), 
+City varchar (15), 
+Email varchar (20)
+);
+
+Create table if not exists HealthcareDB.Doctor (
+Doctor_ID varchar (10) primary key, 
+Doctor_First_name Varchar (20), 
+Doctor_Middle_name varchar (20), 
+Speciality varchar (20), 
+Contact_number varchar (13), 
+Email varchar (20), 
+Date_of_joining date, 
+Date_of_leaving date
+); 
+
+Create table if not exists HealthcareDB.Visits (
+Visit_ID varchar (10) primary key, 
+Doctor_reference Varchar (30), 
+Date_of_vists date, 
+Chief_complaint varchar (99), 
+Visit_notes varchar (250)
+);
+
+Create table if not exists HealthcareDB.Diagnoses (
+Diagnoses_ID varchar (10) primary key, 
+Visit_ID varchar (10), 
+ICD_code varchar (10), 
+Description_of_diagnosis varchar (250) 
+); 
+
+Create table if not exists HealthcareDB.Medication (
+Medication_ID varchar (10) primary key, 
+Name_of_the_drug Varchar (20), 
+Standard_dose Varchar (20), 
+Route_of_administration varchar (10)
+);
+
+Create table if not exists HealthcareDB.Prescriptions (
+Prescription_ID varchar (10) primary key, 
+Visit_ID varchar (10), 
+Prescribed_dose varchar (10), 
+Frequency INT, 
+Duration_of_medication varchar (2)
+);
+
+Create table if not exists HealthcareDB.Lab_tests (
+Lab_test_ID varchar (10), 
+Name_of_the_test varchar (20), 
+Normal_range varchar (5), 
+Unit_of_measurement varchar (5)
+);
+
+Create table if not exists HealthcareDB.Lab_Results (
+Lab_test_ID varchar (10), 
+Visit_ID varchar (10), 
+Result_value varchar (10),   
+Date_of_test date
+);
+
+
+-- Drop database if exists HealthcareDB;
+________________
