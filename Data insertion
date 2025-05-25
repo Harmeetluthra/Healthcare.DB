@@ -1,0 +1,73 @@
+Use HealthcareDB;
+INSERT INTO HealthcareDB.Patient VALUES 
+('P001', 'Alice', 'J.', 'Walker', '1990-04-15', '9012345670', '123 Main St', 'New York', 'alice.walker@example.com'),
+('P002', 'Brian', NULL, 'Lee', '1985-09-03', '9012345671', '456 Elm St', 'Chicago', 'brian.lee@example.com'),
+('P003', 'Clara', 'S.', 'Nguyen', '1978-11-22', '9012345672', '789 Oak St', 'Houston', 'clara.nguyen@example.com'),
+('P004', 'David', NULL, 'Patel', '1992-01-10', '9012345673', '321 Pine St', 'Los Angeles', 'david.patel@example.com'),
+('P005', 'Eva', 'M.', 'Rodriguez', '2000-05-07', '9012345674', '654 Maple St', 'Phoenix', 'eva.rodriguez@example.com'),
+('P006', 'Frank', 'L.', 'Olsen', '1988-07-19', '9012345675', '987 Cedar St', 'Seattle', 'frank.olsen@example.com'),
+('P007', 'Grace', NULL, 'Kim', '1995-03-28', '9012345676', '159 Birch St', 'San Diego', 'grace.kim@example.com'),
+('P008', 'Henry', 'A.', 'Chow', '1982-12-05', '9012345677', '753 Walnut St', 'Miami', 'henry.chow@example.com'),
+('P009', 'Isabel', 'T.', 'Gomez', '1993-06-14', '9012345678', '258 Spruce St', 'Denver', 'isabel.gomez@example.com'),
+('P010', 'Jack', NULL, 'Singh', '1989-08-30', '9012345679', '852 Redwood St', 'Boston', 'jack.singh@example.com')
+;
+
+INSERT INTO HealthcareDB.Doctor VALUES 
+('D001', 'John', 'A.', 'Cardiology', '9112345670', 'john.cardiology@example.com', '2020-01-15', NULL),
+('D002', 'Priya', 'M.', 'Neurology', '9112345671', 'priya.neuro@example.com', '2019-03-12', NULL),
+('D003', 'Ahmed', NULL, 'Orthopedics', '9112345672', 'ahmed.ortho@example.com', '2021-06-01', NULL),
+('D004', 'Lisa', 'T.', 'Pediatrics', '9112345673', 'lisa.peds@example.com', '2018-08-23', NULL),
+('D005', 'Emily', 'C.', 'Dermatology', '9112345674', 'emily.derma@example.com', '2023-02-17', NULL);
+
+INSERT INTO HealthcareDB.Medication VALUES 
+('M001', 'Aspirin', '75mg', 'oral'),
+('M002', 'Sumatriptan', '50mg', 'oral'),
+('M003', 'Ibuprofen', '400mg', 'oral'),
+('M004', 'Amoxicillin', '500mg', 'oral'),
+('M005', 'Minoxidil', '5%', 'topical');
+
+
+INSERT INTO HealthcareDB.Visits VALUES 
+('V001', 'D001', '2024-05-01', 'Chest pain', 'Patient experiencing intermittent chest pain.'),
+('V002', 'D002', '2024-05-03', 'Headache', 'Recurrent migraines reported.'),
+('V003', 'D003', '2024-05-05', 'Knee pain', 'Possible ACL strain.'),
+('V004', 'D004', '2024-05-07', 'Fever and cough', 'Suspected viral infection.'),
+('V005', 'D005', '2024-05-09', 'Skin rash', 'Likely allergic dermatitis.'),
+('V006', 'D001', '2024-05-10', 'Shortness of breath', 'Possible early heart failure.'),
+('V007', 'D002', '2024-05-11', 'Dizziness', 'Might be neurological origin.'),
+('V008', 'D003', '2024-05-12', 'Back pain', 'Muscular strain suspected.'),
+('V009', 'D004', '2024-05-13', 'Abdominal pain', 'Could be appendicitis.'),
+('V010', 'D005', '2024-05-14', 'Hair loss', 'May be stress-induced alopecia.');
+
+INSERT INTO HealthcareDB.Diagnoses VALUES 
+('DG001', 'V001', 'I20', 'Angina Pectoris'),
+('DG002', 'V002', 'G43', 'Migraine'),
+('DG003', 'V003', 'M23', 'Meniscus Tear'),
+('DG004', 'V004', 'J06', 'Acute Upper Respiratory Infection'),
+('DG005', 'V005', 'L23', 'Allergic Contact Dermatitis'),
+('DG006', 'V006', 'I50', 'Heart Failure'),
+('DG007', 'V007', 'R42', 'Dizziness and Giddiness'),
+('DG008', 'V008', 'M54', 'Dorsalgia'),
+('DG009', 'V009', 'K35', 'Acute Appendicitis'),
+('DG010', 'V010', 'L65', 'Nonscarring Hair Loss');
+
+INSERT INTO HealthcareDB.Prescriptions VALUES 
+('PR001', 'V001', '75mg', 1, '30'),
+('PR002', 'V002', '50mg', 2, '10'),
+('PR003', 'V003', '400mg', 3, '7'),
+('PR004', 'V004', '500mg', 3, '5'),
+('PR005', 'V010', '5%', 2, '60');
+
+INSERT INTO HealthcareDB.Lab_tests VALUES 
+('LT001', 'CBC', '4.5', '10^9'),
+('LT002', 'CRP', '5', 'mg/L'),
+('LT003', 'TSH', '0.4', 'mIU'),
+('LT004', 'HbA1c', '5.7', '%'),
+('LT005', 'Lipid', '200', 'mg/dL');
+
+INSERT INTO HealthcareDB.Lab_Results VALUES 
+('LT001', 'V001', '5.2', '2024-05-02'),
+('LT002', 'V002', '8.1', '2024-05-03'),
+('LT003', 'V004', '2.5', '2024-05-07'),
+('LT004', 'V006', '6.0', '2024-05-10'),
+('LT005', 'V010', '210', '2024-05-14');
